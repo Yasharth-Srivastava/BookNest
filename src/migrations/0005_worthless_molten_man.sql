@@ -1,0 +1,1 @@
+ALTER TABLE "books" ADD COLUMN "sold" integer DEFAULT 0 NOT NULL;
