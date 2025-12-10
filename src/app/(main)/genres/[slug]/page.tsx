@@ -5,11 +5,12 @@ import { sql } from "drizzle-orm";
 import Link from "next/link";
 import { BookOpen } from "lucide-react"; 
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-export default async function GenrePage({ params }:  {
-  params: { slug: string };
-}) {
-  const { slug } =  params;
+export default async function GenrePage({ params }: PageProps) {
+  const { slug } =  await params;
   const decodedSlug = decodeURIComponent(slug);
 
   const capitalizedSlug = decodedSlug

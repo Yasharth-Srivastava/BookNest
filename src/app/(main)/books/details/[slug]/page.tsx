@@ -11,15 +11,19 @@ import { ChevronLeft, CheckCircle2, AlertCircle } from "lucide-react";
 import { redirect } from "next/navigation";
 
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-export default async function BookDetailsPage({ params }: { params: { slug: string } }) {
+
+export default async function BookDetailsPage({ params }: PageProps) {
   const user = await currentUser();
 
   if (!user) {
     redirect("/sign-in");
   }
 
-  const { slug } = params;
+  const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
 
   const bookDetails = await db
