@@ -1,3 +1,4 @@
+"use server"
 import { db } from "@/db/db";
 import { books } from "@/schema/schema";
 import { sql } from "drizzle-orm";

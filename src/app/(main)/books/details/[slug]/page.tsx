@@ -1,3 +1,5 @@
+"use server"
+
 import AddToCart from "@/components/AddToCart";
 import BuyNow from "@/components/BuyNow";
 import { db } from "@/db/db";
