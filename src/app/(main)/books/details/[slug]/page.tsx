@@ -6,17 +6,18 @@ import { currentUser } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { ChevronLeft, CheckCircle2, AlertCircle } from "lucide-react";
+import { redirect } from "next/navigation";
+
 
 
 export default async function BookDetailsPage({ params }: { params: { slug: string } }) {
   const user = await currentUser();
 
-  
   if (!user) {
-    return null; 
+    redirect("/sign-in");
   }
 
-  const { slug } = await params;
+  const { slug } = params;
   const decodedSlug = decodeURIComponent(slug);
 
   const bookDetails = await db

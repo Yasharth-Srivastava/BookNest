@@ -5,12 +5,10 @@ import Link from "next/link";
 import { BookOpen } from "lucide-react"; 
 
 
-interface GenrePropType {
-  slug: string;
-}
-
-export default async function GenrePage({ params }: { params: GenrePropType }) {
-  const { slug } = await params;
+export default async function GenrePage({ params }:  {
+  params: { slug: string };
+}) {
+  const { slug } =  params;
   const decodedSlug = decodeURIComponent(slug);
 
   const capitalizedSlug = decodedSlug
