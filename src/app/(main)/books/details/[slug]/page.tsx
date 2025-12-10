@@ -7,11 +7,8 @@ import { eq } from "drizzle-orm";
 import Link from "next/link";
 import { ChevronLeft, CheckCircle2, AlertCircle } from "lucide-react";
 
-interface SlugPropType {
-  slug: string;
-}
 
-export default async function BookDetailsPage({ params }: { params: SlugPropType }) {
+export default async function BookDetailsPage({ params }: { params: { slug: string } }) {
   const user = await currentUser();
 
   
